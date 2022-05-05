@@ -81,6 +81,7 @@
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+=begin
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
 new_studio.save
@@ -259,6 +260,7 @@ new_role["movie_id"] = darkknightrises["id"]
 new_role["actor_id"] = ahathaway["id"]
 new_role["character_name"] = "Selina Kyle"
 new_role.save
+=end
 
 
 # Prints a header for the movies output
@@ -268,6 +270,19 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies = Movie.all
+#puts movies.inspect
+
+for movie in movies
+    # read each contact row's first_name and last_name columns
+    title = movie["title"]
+    year_released = movie["year_released"]
+    rated = movie["rated"]
+    studio = Studio.find_by({"id" => [movie["studio_id"]]}) 
+    # display the first_name and last_name
+    puts "#{title} #{year_released} #{rated} #{studio}"
+  end
 
 # Prints a header for the cast output
 puts ""

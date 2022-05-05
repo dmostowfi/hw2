@@ -281,7 +281,7 @@ for movie in movies
     year_released = movie["year_released"]
     rated = movie["rated"]
     studio = Studio.find_by({"id" => [movie["studio_id"]]})
-    # display the first_name and last_name
+    studio = studio["name"]
     puts "#{title} #{year_released} #{rated} #{studio}"
   end
 

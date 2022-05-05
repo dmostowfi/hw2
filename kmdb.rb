@@ -272,6 +272,7 @@ puts ""
 # TODO!
 
 movies = Movie.all
+studios = Studio.all
 #puts movies.inspect
 
 for movie in movies
@@ -279,7 +280,7 @@ for movie in movies
     title = movie["title"]
     year_released = movie["year_released"]
     rated = movie["rated"]
-    studio = Studio.find_by({"id" => [movie["studio_id"]]}) 
+    studio = Studio.find_by({"id" => [movie["studio_id"]]})
     # display the first_name and last_name
     puts "#{title} #{year_released} #{rated} #{studio}"
   end

@@ -272,11 +272,10 @@ puts ""
 # TODO!
 
 movies = Movie.all
-studios = Studio.all
+roles = Role.all
 #puts movies.inspect
 
 for movie in movies
-    # read each contact row's first_name and last_name columns
     title = movie["title"]
     year_released = movie["year_released"]
     rated = movie["rated"]
@@ -293,3 +292,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+for role in roles
+  title = Movie.find_by({"id" => [role["movie_id"]]})
+  title = movie["title"]
+  actor = Actor.find_by({"id" => [role["actor_id"]]})
+  actor = actor["name"]
+  character_name = role["character_name"]
+  puts "#{title} #{actor} #{character_name}"
+end
